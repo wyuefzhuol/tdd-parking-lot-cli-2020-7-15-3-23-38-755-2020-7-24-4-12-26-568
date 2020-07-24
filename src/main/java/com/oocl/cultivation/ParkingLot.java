@@ -11,7 +11,13 @@ public class ParkingLot {
     }
 
     public Car fetchCarInParkingLot(ParkingTicket parkingTicket) {
-        return new Car("P1");
+        String carId = parkingTicket.getCarId();
+        for (Car car: this.carList) {
+            if (car.getCarId().equals(carId)) {
+                return car;
+            }
+        }
+        return null;
     }
 
     public void parkingCar(Car car) {
