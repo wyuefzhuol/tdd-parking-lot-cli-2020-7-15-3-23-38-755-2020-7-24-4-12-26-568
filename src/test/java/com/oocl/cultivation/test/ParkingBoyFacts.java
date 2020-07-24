@@ -37,6 +37,8 @@ class ParkingBoyFacts {
         ParkingBoy parkingBoy = new ParkingBoy();
         ParkingTicket parkingTicket = new ParkingTicket("P1");
         ParkingLot parkingLot = new ParkingLot();
+        Car carInParkingLot = new Car("P1");
+        parkingLot.parkingCar(carInParkingLot);
 
         //when
         Car car = parkingBoy.parkingBoyFetchCar(parkingTicket, parkingLot);
@@ -60,5 +62,21 @@ class ParkingBoyFacts {
 
         //then
         assertEquals(2, parkingTickets.size());
+    }
+
+    @Test
+    void should_return_P2_car_when_parking_boy_fetch_car_given_parking_boy_P2_ticket_parking_lot() {
+        //given
+        ParkingBoy parkingBoy = new ParkingBoy();
+        ParkingTicket parkingTicket = new ParkingTicket("P2");
+        ParkingLot parkingLot = new ParkingLot();
+        Car carInParkingLot = new Car("P2");
+        parkingLot.parkingCar(carInParkingLot);
+
+        //when
+        Car correctCar = parkingBoy.parkingBoyFetchCar(parkingTicket, parkingLot);
+
+        //then
+        assertEquals(carInParkingLot, correctCar);
     }
 }

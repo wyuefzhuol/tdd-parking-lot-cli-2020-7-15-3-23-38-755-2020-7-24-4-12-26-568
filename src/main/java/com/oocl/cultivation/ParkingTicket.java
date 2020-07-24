@@ -6,4 +6,8 @@ public class ParkingTicket {
     public ParkingTicket(String carId) {
         this.carId = carId;
     }
+
+    public String getCarId() {
+        return carId;
+    }
 }
