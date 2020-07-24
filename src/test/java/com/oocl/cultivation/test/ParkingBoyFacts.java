@@ -94,4 +94,21 @@ class ParkingBoyFacts {
         //then
         assertEquals(null, car);
     }
+
+    @Test
+    void should_return_the_ticket_has_been_used_when_parking_boy_fetch_car_given_parking_boy_used_ticket() {
+        //given
+        ParkingBoy parkingBoy = new ParkingBoy();
+        ParkingTicket parkingTicket = new ParkingTicket("P3");
+        ParkingLot parkingLot = new ParkingLot();
+        Car carInParkingLot = new Car("P3");
+        parkingLot.parkingCar(carInParkingLot);
+        parkingBoy.parkingBoyFetchCar(parkingTicket, parkingLot);
+
+        //when
+        Car car = parkingBoy.parkingBoyFetchCar(parkingTicket, parkingLot);
+
+        //then
+        assertEquals(null, car);
+    }
 }
