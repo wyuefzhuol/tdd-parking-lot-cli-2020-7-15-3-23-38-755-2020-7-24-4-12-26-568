@@ -117,20 +117,12 @@ class ParkingBoyFacts {
         //given
         ParkingBoy parkingBoy = new ParkingBoy();
         ParkingLot parkingLot = new ParkingLot();
-        Car car1 = new Car("P1");
-        Car car2 = new Car("P2");
-        Car car3 = new Car("P3");
-        Car car4 = new Car("P4");
-        Car car5 = new Car("P5");
-        Car car6 = new Car("P6");
-        Car car7 = new Car("P7");
-        Car car8 = new Car("P8");
-        Car car9 = new Car("P9");
-        Car car10 = new Car("P10");
-        Car car11 = new Car("P11");
+        for (int i = 0; i < 10; i++) {
+            parkingBoy.parkingBoyParkingCar(new Car("P"+i), parkingLot);
+        }
 
         //when
-        ParkingTicket parkingTicket = parkingBoy.parkingBoyParkingCar(car11, parkingLot);
+        ParkingTicket parkingTicket = parkingBoy.parkingBoyParkingCar(new Car("P11"), parkingLot);
 
         //then
         assertEquals("parking lot has no position", parkingTicket.getCarId());

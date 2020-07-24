@@ -5,7 +5,11 @@ import java.util.List;
 
 public class ParkingBoy {
     public ParkingTicket parkingBoyParkingCar(Car car, ParkingLot parkingLot) {
-        ParkingTicket parkingTicket = new ParkingTicket("P1");
+        ParkingTicket parkingTicket = new ParkingTicket(car.getCarId());
+        if (parkingLot.getPosition() <= 0) {
+            return new ParkingTicket("parking lot has no position");
+        }
+        parkingLot.parkingCar(car);
         return parkingTicket;
     }
 

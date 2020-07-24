@@ -14,9 +14,15 @@ public class ParkingLot {
 
     public Car fetchCarInParkingLot(ParkingTicket parkingTicket) {
         String carId = parkingTicket.getCarId();
-        for (Car car: this.carList) {
+        for (Car car : this.carList) {
             if (car.getCarId().equals(carId)) {
                 parkingTicket.hasBeenUsed();
+                for (int i = 0; i < carList.size(); i++) {
+                    if (carList.get(i).equals(carId)) {
+                        carList.remove(i);
+                    }
+                }
+                this.position++;
                 return car;
             }
         }
@@ -25,5 +31,10 @@ public class ParkingLot {
 
     public void parkingCar(Car car) {
         this.carList.add(car);
+        this.position--;
+    }
+
+    public int getPosition() {
+        return position;
     }
 }
