@@ -10,6 +10,9 @@ public class ParkingBoy {
     }
 
     public Car parkingBoyFetchCar(ParkingTicket parkingTicket, ParkingLot parkingLot) {
+        if (parkingTicket.getBeenUsed()) {
+            return new Car("the ticket has been used");
+        }
         Car car = parkingLot.fetchCarInParkingLot(parkingTicket);
         return car;
     }

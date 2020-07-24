@@ -14,10 +14,11 @@ public class ParkingLot {
         String carId = parkingTicket.getCarId();
         for (Car car: this.carList) {
             if (car.getCarId().equals(carId)) {
+                parkingTicket.hasBeenUsed();
                 return car;
             }
         }
-        return null;
+        return new Car("the ticket is wrong");
     }
 
     public void parkingCar(Car car) {

@@ -76,7 +76,7 @@ class ParkingBoyFacts {
         Car correctCar = parkingBoy.parkingBoyFetchCar(parkingTicket, parkingLot);
 
         //then
-        assertEquals(carInParkingLot, correctCar);
+        assertEquals(carInParkingLot.getCarId(), correctCar.getCarId());
     }
 
     @Test
@@ -92,7 +92,7 @@ class ParkingBoyFacts {
         Car car = parkingBoy.parkingBoyFetchCar(parkingTicket, parkingLot);
 
         //then
-        assertEquals(null, car);
+        assertEquals("the ticket is wrong", car.getCarId());
     }
 
     @Test
@@ -109,6 +109,6 @@ class ParkingBoyFacts {
         Car car = parkingBoy.parkingBoyFetchCar(parkingTicket, parkingLot);
 
         //then
-        assertEquals(null, car);
+        assertEquals("the ticket has been used", car.getCarId());
     }
 }
