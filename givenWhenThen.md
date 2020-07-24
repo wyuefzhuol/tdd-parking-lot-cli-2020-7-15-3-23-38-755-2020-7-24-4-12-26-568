@@ -6,7 +6,7 @@
 **Then** return 1 ticket
 
 ---
-**Given** parking boy 1 ticket
+**Given** parking boy 1 ticket 1 car in parking lot
 
 **When** parking boy fetch car
 
