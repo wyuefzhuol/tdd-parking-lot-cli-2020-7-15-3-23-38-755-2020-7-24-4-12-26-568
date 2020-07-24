@@ -9,8 +9,7 @@ import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.*;
 
 class ParkingBoyFacts {
     @Test
@@ -78,5 +77,21 @@ class ParkingBoyFacts {
 
         //then
         assertEquals(carInParkingLot, correctCar);
+    }
+
+    @Test
+    void should_return_the_ticket_is_wrong_when_parking_boy_fetch_car_given_parking_boy_wrong_ticket() {
+        //given
+        ParkingBoy parkingBoy = new ParkingBoy();
+        ParkingTicket parkingTicket = new ParkingTicket("P3");
+        ParkingLot parkingLot = new ParkingLot();
+        Car carInParkingLot = new Car("P1");
+        parkingLot.parkingCar(carInParkingLot);
+
+        //when
+        Car car = parkingBoy.parkingBoyFetchCar(parkingTicket, parkingLot);
+
+        //then
+        assertEquals(null, car);
     }
 }
