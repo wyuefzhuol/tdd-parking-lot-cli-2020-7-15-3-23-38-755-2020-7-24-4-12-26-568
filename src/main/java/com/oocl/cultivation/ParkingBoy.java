@@ -15,6 +15,10 @@ public class ParkingBoy {
     }
 
     public List<ParkingTicket> parkingBoyParkingCars(List<Car> cars) {
-        return null;
+        List<ParkingTicket> parkingTickets = new ArrayList<>();
+        for (Car car : cars) {
+            parkingTickets.add(parkingBoyParkingCar(car));
+        }
+        return parkingTickets;
     }
 }
