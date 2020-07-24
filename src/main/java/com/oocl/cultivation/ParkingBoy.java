@@ -1,7 +1,8 @@
 package com.oocl.cultivation;
 
 public class ParkingBoy {
-    public ParkingTicket parking(Car car) {
-        return null;
+    public ParkingTicket parkingBoyParkingCar(Car car) {
+        ParkingTicket parkingTicket = new ParkingTicket();
+        return parkingTicket;
     }
 }
