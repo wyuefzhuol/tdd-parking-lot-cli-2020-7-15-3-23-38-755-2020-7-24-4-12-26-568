@@ -17,11 +17,11 @@ class ParkingBoyFacts {
     @Test
     void should_return_1_ticket_when_parking_boy_parking_car_given_parking_boy_1_car() {
         //given
-        Car car = new Car();
+        Car car = new Car("P1");
         ParkingBoy parkingBoy = new ParkingBoy();
 
         //when
-        ParkingTicket parkingTicket = parkingBoy.parking(car);
+        ParkingTicket parkingTicket = parkingBoy.parkingBoyParkingCar(car);
 
         //then
         assertNotNull(parkingTicket);
