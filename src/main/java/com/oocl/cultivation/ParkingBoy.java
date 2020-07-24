@@ -7,6 +7,7 @@ public class ParkingBoy {
     }
 
     public Car parkingBoyFetchCar(ParkingTicket parkingTicket, ParkingLot parkingLot) {
-        return null;
+        Car car = parkingLot.fetchCarInParkingLot(parkingTicket);
+        return car;
     }
 }
