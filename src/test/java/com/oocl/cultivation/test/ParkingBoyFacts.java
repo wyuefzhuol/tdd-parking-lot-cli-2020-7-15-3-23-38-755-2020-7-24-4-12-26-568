@@ -24,7 +24,7 @@ class ParkingBoyFacts {
         Car car = new Car("P1");
 
         //when
-        ParkingTicket parkingTicket = parkingBoy.parkingBoyParkingCar(car);
+        ParkingTicket parkingTicket = parkingBoy.parkingBoyParkingCar(car, new ParkingLot());
 
         //then
         assertNotNull(parkingTicket);
@@ -57,7 +57,7 @@ class ParkingBoyFacts {
         cars.add(carP2);
 
         //when
-        List<ParkingTicket> parkingTickets = parkingBoy.parkingBoyParkingCars(cars);
+        List<ParkingTicket> parkingTickets = parkingBoy.parkingBoyParkingCars(cars, new ParkingLot());
 
         //then
         assertEquals(2, parkingTickets.size());
@@ -110,5 +110,29 @@ class ParkingBoyFacts {
 
         //then
         assertEquals("the ticket has been used", car.getCarId());
+    }
+
+    @Test
+    void should_return_parking_lot_has_no_position_when_parking_boy_parking_car_given_parking_boy_parking_lot_car() {
+        //given
+        ParkingBoy parkingBoy = new ParkingBoy();
+        ParkingLot parkingLot = new ParkingLot();
+        Car car1 = new Car("P1");
+        Car car2 = new Car("P2");
+        Car car3 = new Car("P3");
+        Car car4 = new Car("P4");
+        Car car5 = new Car("P5");
+        Car car6 = new Car("P6");
+        Car car7 = new Car("P7");
+        Car car8 = new Car("P8");
+        Car car9 = new Car("P9");
+        Car car10 = new Car("P10");
+        Car car11 = new Car("P11");
+
+        //when
+        ParkingTicket parkingTicket = parkingBoy.parkingBoyParkingCar(car11, parkingLot);
+
+        //then
+        assertEquals("parking lot has no position", parkingTicket.getCarId());
     }
 }

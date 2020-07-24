@@ -5,9 +5,11 @@ import java.util.List;
 
 public class ParkingLot {
     private List<Car> carList;
+    private int position;
 
     public ParkingLot() {
         this.carList = new ArrayList<>();
+        this.position = 10;
     }
 
     public Car fetchCarInParkingLot(ParkingTicket parkingTicket) {

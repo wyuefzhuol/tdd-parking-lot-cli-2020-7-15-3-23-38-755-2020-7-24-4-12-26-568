@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ParkingBoy {
-    public ParkingTicket parkingBoyParkingCar(Car car) {
+    public ParkingTicket parkingBoyParkingCar(Car car, ParkingLot parkingLot) {
         ParkingTicket parkingTicket = new ParkingTicket("P1");
         return parkingTicket;
     }
@@ -17,10 +17,10 @@ public class ParkingBoy {
         return car;
     }
 
-    public List<ParkingTicket> parkingBoyParkingCars(List<Car> cars) {
+    public List<ParkingTicket> parkingBoyParkingCars(List<Car> cars, ParkingLot parkingLot) {
         List<ParkingTicket> parkingTickets = new ArrayList<>();
         for (Car car : cars) {
-            parkingTickets.add(parkingBoyParkingCar(car));
+            parkingTickets.add(parkingBoyParkingCar(car, parkingLot));
         }
         return parkingTickets;
     }
