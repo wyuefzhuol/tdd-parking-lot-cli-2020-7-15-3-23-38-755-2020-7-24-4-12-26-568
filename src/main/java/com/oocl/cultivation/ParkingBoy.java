@@ -1,5 +1,8 @@
 package com.oocl.cultivation;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class ParkingBoy {
     public ParkingTicket parkingBoyParkingCar(Car car) {
         ParkingTicket parkingTicket = new ParkingTicket("P1");
@@ -9,5 +12,9 @@ public class ParkingBoy {
     public Car parkingBoyFetchCar(ParkingTicket parkingTicket, ParkingLot parkingLot) {
         Car car = parkingLot.fetchCarInParkingLot(parkingTicket);
         return car;
+    }
+
+    public List<ParkingTicket> parkingBoyParkingCars(List<Car> cars) {
+        return null;
     }
 }

@@ -6,6 +6,9 @@ import com.oocl.cultivation.ParkingLot;
 import com.oocl.cultivation.ParkingTicket;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
@@ -40,5 +43,22 @@ class ParkingBoyFacts {
 
         //then
         assertNotNull(car);
+    }
+
+    @Test
+    void should_return_2_tickets_when_parking_boy_parking_car_given_parking_boy_2_cars() {
+        //given
+        ParkingBoy parkingBoy = new ParkingBoy();
+        List<Car> cars = new ArrayList<>();
+        Car carP1 = new Car("P1");
+        cars.add(carP1);
+        Car carP2 = new Car("P2");
+        cars.add(carP2);
+
+        //when
+        List<ParkingTicket> parkingTickets = parkingBoy.parkingBoyParkingCars(cars);
+
+        //then
+        assertEquals(2, parkingTickets.size());
     }
 }
