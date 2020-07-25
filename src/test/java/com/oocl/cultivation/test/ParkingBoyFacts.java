@@ -24,7 +24,7 @@ class ParkingBoyFacts {
         Car car = new Car("P1");
 
         //when
-        ParkingTicket parkingTicket = parkingBoy.parkingBoyParkingCar(car, new ParkingLot());
+        ParkingTicket parkingTicket = parkingBoy.parkingBoyParkingCar(car);
 
         //then
         assertNotNull(parkingTicket);
@@ -34,13 +34,11 @@ class ParkingBoyFacts {
     void should_return_1_car_when_parking_boy_fetch_car_given_parking_boy_1_ticket_parking_lot() {
         //given
         ParkingBoy parkingBoy = new ParkingBoy();
-        ParkingTicket parkingTicket = new ParkingTicket("P1");
-        ParkingLot parkingLot = new ParkingLot();
         Car carInParkingLot = new Car("P1");
-        parkingLot.parkingCar(carInParkingLot);
+        ParkingTicket parkingTicket = parkingBoy.parkingBoyParkingCar(carInParkingLot);
 
         //when
-        Car car = parkingBoy.parkingBoyFetchCar(parkingTicket, parkingLot);
+        Car car = parkingBoy.parkingBoyFetchCar(parkingTicket);
 
         //then
         assertNotNull(car);
@@ -57,7 +55,7 @@ class ParkingBoyFacts {
         cars.add(carP2);
 
         //when
-        List<ParkingTicket> parkingTickets = parkingBoy.parkingBoyParkingCars(cars, new ParkingLot());
+        List<ParkingTicket> parkingTickets = parkingBoy.parkingBoyParkingCars(cars);
 
         //then
         assertEquals(2, parkingTickets.size());
@@ -67,13 +65,11 @@ class ParkingBoyFacts {
     void should_return_P2_car_when_parking_boy_fetch_car_given_parking_boy_P2_ticket_parking_lot() {
         //given
         ParkingBoy parkingBoy = new ParkingBoy();
-        ParkingTicket parkingTicket = new ParkingTicket("P2");
-        ParkingLot parkingLot = new ParkingLot();
         Car carInParkingLot = new Car("P2");
-        parkingLot.parkingCar(carInParkingLot);
+        ParkingTicket parkingTicket = parkingBoy.parkingBoyParkingCar(carInParkingLot);
 
         //when
-        Car correctCar = parkingBoy.parkingBoyFetchCar(parkingTicket, parkingLot);
+        Car correctCar = parkingBoy.parkingBoyFetchCar(parkingTicket);
 
         //then
         assertEquals(carInParkingLot.getCarId(), correctCar.getCarId());
@@ -89,7 +85,7 @@ class ParkingBoyFacts {
         parkingLot.parkingCar(carInParkingLot);
 
         //when
-        Car car = parkingBoy.parkingBoyFetchCar(parkingTicket, parkingLot);
+        Car car = parkingBoy.parkingBoyFetchCar(parkingTicket);
 
         //then
         assertEquals("the ticket is wrong", car.getCarId());
@@ -99,14 +95,12 @@ class ParkingBoyFacts {
     void should_return_the_ticket_has_been_used_when_parking_boy_fetch_car_given_parking_boy_used_ticket() {
         //given
         ParkingBoy parkingBoy = new ParkingBoy();
-        ParkingTicket parkingTicket = new ParkingTicket("P3");
-        ParkingLot parkingLot = new ParkingLot();
         Car carInParkingLot = new Car("P3");
-        parkingLot.parkingCar(carInParkingLot);
-        parkingBoy.parkingBoyFetchCar(parkingTicket, parkingLot);
+        ParkingTicket parkingTicket = parkingBoy.parkingBoyParkingCar(carInParkingLot);
+        parkingBoy.parkingBoyFetchCar(parkingTicket);
 
         //when
-        Car car = parkingBoy.parkingBoyFetchCar(parkingTicket, parkingLot);
+        Car car = parkingBoy.parkingBoyFetchCar(parkingTicket);
 
         //then
         assertEquals("the ticket has been used", car.getCarId());
@@ -116,13 +110,12 @@ class ParkingBoyFacts {
     void should_return_parking_lot_has_no_position_when_parking_boy_parking_car_given_parking_boy_parking_lot_car() {
         //given
         ParkingBoy parkingBoy = new ParkingBoy();
-        ParkingLot parkingLot = new ParkingLot();
         for (int i = 0; i < 10; i++) {
-            parkingBoy.parkingBoyParkingCar(new Car("P"+i), parkingLot);
+            parkingBoy.parkingBoyParkingCar(new Car("P"+i));
         }
 
         //when
-        ParkingTicket parkingTicket = parkingBoy.parkingBoyParkingCar(new Car("P11"), parkingLot);
+        ParkingTicket parkingTicket = parkingBoy.parkingBoyParkingCar(new Car("P11"));
 
         //then
         assertEquals("parking lot has no position", parkingTicket.getCarId());
@@ -133,12 +126,11 @@ class ParkingBoyFacts {
         //given
         ParkingBoy parkingBoy = new ParkingBoy();
         ParkingTicket wrongTicket = new ParkingTicket("P3");
-        ParkingLot parkingLot = new ParkingLot();
         Car carInParkingLot = new Car("P1");
-        parkingLot.parkingCar(carInParkingLot);
+        parkingBoy.parkingBoyParkingCar(carInParkingLot);
 
         //when
-        String responseMessage = parkingBoy.checkTicket(wrongTicket, parkingLot);
+        String responseMessage = parkingBoy.checkTicket(wrongTicket);
 
         //then
         assertEquals("unrecognized parking ticket", responseMessage);
