@@ -12,9 +12,6 @@ public class ParkingBoy {
 
     public ParkingTicket parkingBoyParkingCar(Car car) {
         ParkingTicket parkingTicket = new ParkingTicket(car.getCarId());
-        if (parkingLot.getPosition() <= 0) {
-            return new ParkingTicket("parking lot has no position");
-        }
         parkingLot.parkingCar(car);
         return parkingTicket;
     }

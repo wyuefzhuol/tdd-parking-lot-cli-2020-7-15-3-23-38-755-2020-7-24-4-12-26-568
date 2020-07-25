@@ -115,10 +115,10 @@ class ParkingBoyFacts {
         }
 
         //when
-        ParkingTicket parkingTicket = parkingBoy.parkingBoyParkingCar(new Car("P11"));
+        String parkingLotMessage = parkingBoy.checkParkingLotPosition();
 
         //then
-        assertEquals("parking lot has no position", parkingTicket.getCarId());
+        assertEquals("not enough position", parkingLotMessage);
     }
 
     @Test
