@@ -1,8 +1,5 @@
 package com.oocl.cultivation;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class SmartParkingBoy extends ParkingBoy {
     public SmartParkingBoy(int parkingLotsCount) {
         super(parkingLotsCount);
@@ -11,7 +8,6 @@ public class SmartParkingBoy extends ParkingBoy {
     @Override
     public ParkingTicket parkingCar(Car car) {
         ParkingTicket parkingTicket = new ParkingTicket(car.getCarId());
-        ParkingLot maxPositionParkingLot = new ParkingLot();
         int bestParkingLotNumber = 0;
         int maxPosition = parkingLots.get(bestParkingLotNumber).getPosition();
         for (int parkingLotNumber = 0; parkingLotNumber < parkingLots.size(); parkingLotNumber++) {
