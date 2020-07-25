@@ -1,4 +1,5 @@
----
+# Story1
+
 **Given** parking boy 1 car
 
 **When** parking boy parking car
@@ -48,6 +49,8 @@
 **Then** return parking lot has no position
 
 ---
+# Story2
+
 **Given** parking boy wrong ticket
 
 **When** check ticket
@@ -74,3 +77,12 @@
 **When** check parking lot position 
 
 **Then** return not enough position
+
+---
+# Story3
+
+**Given** parking boy who has 2 parking lots 10 cars
+
+**When** check parking order
+
+**Then** return 1 full parking lot 1 empty parking lot
