@@ -96,14 +96,14 @@ class ParkingBoyFacts {
         //given
         ParkingBoy parkingBoy = new ParkingBoy();
         Car carInParkingLot = new Car("P3");
-        ParkingTicket parkingTicket = parkingBoy.parkingBoyParkingCar(carInParkingLot);
-        parkingBoy.parkingBoyFetchCar(parkingTicket);
+        ParkingTicket usedTicket = parkingBoy.parkingBoyParkingCar(carInParkingLot);
+        parkingBoy.parkingBoyFetchCar(usedTicket);
 
         //when
-        Car car = parkingBoy.parkingBoyFetchCar(parkingTicket);
+        String responseMessage = parkingBoy.checkTicket(usedTicket);
 
         //then
-        assertEquals("the ticket has been used", car.getCarId());
+        assertEquals("unrecognized parking ticket", responseMessage);
     }
 
     @Test
