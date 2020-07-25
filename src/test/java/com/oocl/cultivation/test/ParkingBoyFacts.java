@@ -221,4 +221,20 @@ class ParkingBoyFacts {
         assertEquals(9, parkingLots.get(0).getPosition());
         assertEquals(9, parkingLots.get(1).getPosition());
     }
+
+    @Test
+    void return_parking_lots_has_2_cars_and_1_car_when_check_parking_order_parking_lots_has_1_cars_and_1_cars_1_car_1_smart_parking_boy() {
+        //given
+        SmartParkingBoy smartParkingBoy = new SmartParkingBoy(2);
+        smartParkingBoy.parkingCar(new Car("P1"));
+        smartParkingBoy.parkingCar(new Car("P2"));
+
+        //when
+        smartParkingBoy.parkingCar(new Car("P3"));
+        List<ParkingLot> parkingLots = smartParkingBoy.checkParkingOrder();
+
+        //then
+        assertEquals(8, parkingLots.get(0).getPosition());
+        assertEquals(9, parkingLots.get(1).getPosition());
+    }
 }
