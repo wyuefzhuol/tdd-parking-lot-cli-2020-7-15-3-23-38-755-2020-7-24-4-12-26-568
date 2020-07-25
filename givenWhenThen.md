@@ -50,27 +50,27 @@
 ---
 **Given** parking boy wrong ticket
 
-**When** parking boy fetch car
+**When** check ticket
 
 **Then** return unrecognized parking ticket
 
 ---
 **Given** parking boy used ticket
 
-**When** parking boy fetch car
+**When** check ticket
 
 **Then** return unrecognized parking ticket
 
 ---
 **Given** parking boy
 
-**When** parking boy fetch car
+**When** check ticket
 
 **Then** return please provide your parking ticket
 
 ---
 **Given** parking boy parking lot car
 
-**When** parking boy parking car
+**When** check parking lot position 
 
 **Then** return not enough position
