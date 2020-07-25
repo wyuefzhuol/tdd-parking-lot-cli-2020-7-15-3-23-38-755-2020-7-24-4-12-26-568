@@ -13,6 +13,13 @@ public class ParkingBoy {
         }
     }
 
+    public ParkingBoy(int parkingLotsCount, int[] parkingLotsPosition) {
+        parkingLots = new ArrayList<>();
+        for (int parkingLotsIndex = 0; parkingLotsIndex < parkingLotsCount; parkingLotsIndex++) {
+            parkingLots.add(new ParkingLot(parkingLotsPosition[parkingLotsIndex]));
+        }
+    }
+
     public ParkingTicket parkingCar(Car car) {
         ParkingTicket parkingTicket = new ParkingTicket(car.getCarId());
         for (ParkingLot parkingLot : parkingLots) {

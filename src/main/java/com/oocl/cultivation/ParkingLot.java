@@ -6,10 +6,17 @@ import java.util.List;
 public class ParkingLot {
     private List<Car> carList;
     private int position;
+    private int maxPosition;
 
     public ParkingLot() {
         this.carList = new ArrayList<>();
         this.position = 10;
+    }
+
+    public ParkingLot(int position) {
+        this.carList = new ArrayList<>();
+        this.position = position;
+        this.maxPosition = position;
     }
 
     public List<Car> getCarList() {
@@ -40,5 +47,9 @@ public class ParkingLot {
 
     public int getPosition() {
         return position;
+    }
+
+    public int getMaxPosition() {
+        return maxPosition;
     }
 }
