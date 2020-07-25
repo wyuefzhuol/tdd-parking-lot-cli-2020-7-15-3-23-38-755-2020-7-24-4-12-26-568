@@ -176,7 +176,7 @@ class ParkingBoyFacts {
     }
 
     @Test
-    void return_1_full_parking_lot_1_empty_parking_lot_when_check_parking_order_parking_boy_who_has_2_parking_lots_10_cars() {
+    void should_return_1_full_parking_lot_1_empty_parking_lot_when_check_parking_order_parking_boy_who_has_2_parking_lots_10_cars() {
         //given
         ParkingBoy parkingBoy = new ParkingBoy(2);
         for (int i = 0; i < 10; i++) {
@@ -192,7 +192,7 @@ class ParkingBoyFacts {
     }
 
     @Test
-    void return_1_full_parking_lot_1_parking_lot_has_2_cars_when_check_parking_order_parking_boy_who_has_2_parking_lots_12_cars() {
+    void should_return_1_full_parking_lot_1_parking_lot_has_2_cars_when_check_parking_order_parking_boy_who_has_2_parking_lots_12_cars() {
         //given
         ParkingBoy parkingBoy = new ParkingBoy(2);
         for (int i = 0; i < 12; i++) {
@@ -208,7 +208,7 @@ class ParkingBoyFacts {
     }
 
     @Test
-    void return_parking_lots_has_1_cars_and_1_car_when_check_parking_order_parking_lots_has_1_cars_and_0_cars_1_car_1_smart_parking_boy() {
+    void should_return_parking_lots_has_1_cars_and_1_car_when_check_parking_order_parking_lots_has_1_cars_and_0_cars_1_car_1_smart_parking_boy() {
         //given
         SmartParkingBoy smartParkingBoy = new SmartParkingBoy(2);
         smartParkingBoy.parkingCar(new Car("P1"));
@@ -223,7 +223,7 @@ class ParkingBoyFacts {
     }
 
     @Test
-    void return_parking_lots_has_2_cars_and_1_car_when_check_parking_order_parking_lots_has_1_cars_and_1_cars_1_car_1_smart_parking_boy() {
+    void should_return_parking_lots_has_2_cars_and_1_car_when_check_parking_order_parking_lots_has_1_cars_and_1_cars_1_car_1_smart_parking_boy() {
         //given
         SmartParkingBoy smartParkingBoy = new SmartParkingBoy(2);
         smartParkingBoy.parkingCar(new Car("P1"));
@@ -235,6 +235,23 @@ class ParkingBoyFacts {
 
         //then
         assertEquals(8, parkingLots.get(0).getPosition());
+        assertEquals(9, parkingLots.get(1).getPosition());
+    }
+
+    @Test
+    void should_return_parking_lots_has_2_cars_and_1_car_when_check_parking_order_given_parking_lots_1920_and_910_1_car() {
+        //given
+        int[] parkingLotsPosition = {20,10};
+        SuperSmartParkingBoy superSmartParkingBoy = new SuperSmartParkingBoy(2, parkingLotsPosition);
+        superSmartParkingBoy.parkingCar(new Car("P1"));
+        superSmartParkingBoy.parkingCar(new Car("P2"));
+
+        //when
+        superSmartParkingBoy.parkingCar(new Car("P3"));
+        List<ParkingLot> parkingLots = superSmartParkingBoy.checkParkingOrder();
+
+        //then
+        assertEquals(18, parkingLots.get(0).getPosition());
         assertEquals(9, parkingLots.get(1).getPosition());
     }
 }
