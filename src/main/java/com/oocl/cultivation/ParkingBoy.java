@@ -30,6 +30,12 @@ public class ParkingBoy {
     }
 
     public String checkTicket(ParkingTicket wrongTicket, ParkingLot parkingLot) {
-        return null;
+        List<Car> carList = parkingLot.getCarList();
+        for (Car car : carList) {
+            if (car.getCarId().equals(wrongTicket.getCarId())) {
+                return "the ticket is valid";
+            }
+        }
+        return "unrecognized parking ticket";
     }
 }

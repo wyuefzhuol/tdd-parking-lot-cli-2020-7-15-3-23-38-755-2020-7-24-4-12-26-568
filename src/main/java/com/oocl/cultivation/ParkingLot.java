@@ -12,6 +12,10 @@ public class ParkingLot {
         this.position = 10;
     }
 
+    public List<Car> getCarList() {
+        return carList;
+    }
+
     public Car fetchCarInParkingLot(ParkingTicket parkingTicket) {
         String carId = parkingTicket.getCarId();
         for (Car car : this.carList) {
