@@ -44,4 +44,8 @@ public class ParkingBoy {
         }
         return "unrecognized parking ticket";
     }
+
+    public String checkParkingLotPosition() {
+        return "enough";
+    }
 }
