@@ -24,7 +24,7 @@ class ParkingBoyFacts {
         Car car = new Car("P1");
 
         //when
-        ParkingTicket parkingTicket = parkingBoy.parkingBoyParkingCar(car);
+        ParkingTicket parkingTicket = parkingBoy.parkingCar(car);
 
         //then
         assertNotNull(parkingTicket);
@@ -35,10 +35,10 @@ class ParkingBoyFacts {
         //given
         ParkingBoy parkingBoy = new ParkingBoy(1);
         Car carInParkingLot = new Car("P1");
-        ParkingTicket parkingTicket = parkingBoy.parkingBoyParkingCar(carInParkingLot);
+        ParkingTicket parkingTicket = parkingBoy.parkingCar(carInParkingLot);
 
         //when
-        Car car = parkingBoy.parkingBoyFetchCar(parkingTicket);
+        Car car = parkingBoy.fetchCar(parkingTicket);
 
         //then
         assertNotNull(car);
@@ -66,10 +66,10 @@ class ParkingBoyFacts {
         //given
         ParkingBoy parkingBoy = new ParkingBoy(1);
         Car carInParkingLot = new Car("P2");
-        ParkingTicket parkingTicket = parkingBoy.parkingBoyParkingCar(carInParkingLot);
+        ParkingTicket parkingTicket = parkingBoy.parkingCar(carInParkingLot);
 
         //when
-        Car correctCar = parkingBoy.parkingBoyFetchCar(parkingTicket);
+        Car correctCar = parkingBoy.fetchCar(parkingTicket);
 
         //then
         assertEquals(carInParkingLot.getCarId(), correctCar.getCarId());
@@ -82,10 +82,10 @@ class ParkingBoyFacts {
         ParkingTicket parkingTicket = new ParkingTicket("P3");
         ParkingLot parkingLot = new ParkingLot();
         Car carInParkingLot = new Car("P1");
-        parkingLot.parkingCar(carInParkingLot);
+        parkingLot.parkingCarToParkingLot(carInParkingLot);
 
         //when
-        Car car = parkingBoy.parkingBoyFetchCar(parkingTicket);
+        Car car = parkingBoy.fetchCar(parkingTicket);
 
         //then
         assertEquals("the ticket is wrong", car.getCarId());
@@ -96,8 +96,8 @@ class ParkingBoyFacts {
         //given
         ParkingBoy parkingBoy = new ParkingBoy(1);
         Car carInParkingLot = new Car("P3");
-        ParkingTicket usedTicket = parkingBoy.parkingBoyParkingCar(carInParkingLot);
-        parkingBoy.parkingBoyFetchCar(usedTicket);
+        ParkingTicket usedTicket = parkingBoy.parkingCar(carInParkingLot);
+        parkingBoy.fetchCar(usedTicket);
 
         //when
         String responseMessage = parkingBoy.checkTicket(usedTicket);
@@ -111,7 +111,7 @@ class ParkingBoyFacts {
         //given
         ParkingBoy parkingBoy = new ParkingBoy(1);
         for (int i = 0; i < 10; i++) {
-            parkingBoy.parkingBoyParkingCar(new Car("P"+i));
+            parkingBoy.parkingCar(new Car("P"+i));
         }
 
         //when
@@ -127,7 +127,7 @@ class ParkingBoyFacts {
         ParkingBoy parkingBoy = new ParkingBoy(1);
         ParkingTicket wrongTicket = new ParkingTicket("P3");
         Car carInParkingLot = new Car("P1");
-        parkingBoy.parkingBoyParkingCar(carInParkingLot);
+        parkingBoy.parkingCar(carInParkingLot);
 
         //when
         String responseMessage = parkingBoy.checkTicket(wrongTicket);
@@ -141,8 +141,8 @@ class ParkingBoyFacts {
         //given
         ParkingBoy parkingBoy = new ParkingBoy(1);
         Car carInParkingLot = new Car("P3");
-        ParkingTicket usedTicket = parkingBoy.parkingBoyParkingCar(carInParkingLot);
-        parkingBoy.parkingBoyFetchCar(usedTicket);
+        ParkingTicket usedTicket = parkingBoy.parkingCar(carInParkingLot);
+        parkingBoy.fetchCar(usedTicket);
 
         //when
         String responseMessage = parkingBoy.checkTicket(usedTicket);
@@ -168,7 +168,7 @@ class ParkingBoyFacts {
         //given
         ParkingBoy parkingBoy = new ParkingBoy(1);
         for (int i = 0; i < 10; i++) {
-            parkingBoy.parkingBoyParkingCar(new Car("P"+i));
+            parkingBoy.parkingCar(new Car("P"+i));
         }
 
         //when
@@ -183,7 +183,7 @@ class ParkingBoyFacts {
         //given
         ParkingBoy parkingBoy = new ParkingBoy(2);
         for (int i = 0; i < 10; i++) {
-            parkingBoy.parkingBoyParkingCar(new Car("P"+i));
+            parkingBoy.parkingCar(new Car("P"+i));
         }
 
         //when
@@ -199,7 +199,7 @@ class ParkingBoyFacts {
         //given
         ParkingBoy parkingBoy = new ParkingBoy(2);
         for (int i = 0; i < 12; i++) {
-            parkingBoy.parkingBoyParkingCar(new Car("P"+i));
+            parkingBoy.parkingCar(new Car("P"+i));
         }
 
         //when

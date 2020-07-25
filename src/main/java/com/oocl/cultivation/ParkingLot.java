@@ -16,7 +16,7 @@ public class ParkingLot {
         return carList;
     }
 
-    public Car fetchCarInParkingLot(ParkingTicket parkingTicket) {
+    public Car fetchCarFromParkingLot(ParkingTicket parkingTicket) {
         String carId = parkingTicket.getCarId();
         for (Car car : this.carList) {
             if (car.getCarId().equals(carId)) {
@@ -33,7 +33,7 @@ public class ParkingLot {
         return new Car("the ticket is wrong");
     }
 
-    public void parkingCar(Car car) {
+    public void parkingCarToParkingLot(Car car) {
         this.carList.add(car);
         this.position--;
     }

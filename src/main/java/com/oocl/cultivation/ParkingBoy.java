@@ -13,21 +13,21 @@ public class ParkingBoy {
         }
     }
 
-    public ParkingTicket parkingBoyParkingCar(Car car) {
+    public ParkingTicket parkingCar(Car car) {
         ParkingTicket parkingTicket = new ParkingTicket(car.getCarId());
         for (ParkingLot parkingLot : parkingLots) {
             if (parkingLot.getPosition() > 0) {
-                parkingLot.parkingCar(car);
+                parkingLot.parkingCarToParkingLot(car);
                 break;
             }
         }
         return parkingTicket;
     }
 
-    public Car parkingBoyFetchCar(ParkingTicket parkingTicket) {
+    public Car fetchCar(ParkingTicket parkingTicket) {
         Car car = new Car("the ticket is wrong");
         for (ParkingLot parkingLot : parkingLots) {
-            car = parkingLot.fetchCarInParkingLot(parkingTicket);
+            car = parkingLot.fetchCarFromParkingLot(parkingTicket);
             if (!car.getCarId().equals("the ticket is wrong")) {
                 return car;
             }
@@ -38,7 +38,7 @@ public class ParkingBoy {
     public List<ParkingTicket> parkingBoyParkingCars(List<Car> cars) {
         List<ParkingTicket> parkingTickets = new ArrayList<>();
         for (Car car : cars) {
-            parkingTickets.add(parkingBoyParkingCar(car));
+            parkingTickets.add(parkingCar(car));
         }
         return parkingTickets;
     }
