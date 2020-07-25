@@ -5,9 +5,17 @@ import java.util.List;
 
 public class ParkingBoy {
     private ParkingLot parkingLot;
+    private List<ParkingLot> parkingLots;
 
     public ParkingBoy() {
         this.parkingLot = new ParkingLot();
+    }
+
+    public ParkingBoy(int parkingLotsCount) {
+        parkingLots = new ArrayList<>();
+        for (int parkingLotsIndex = 0; parkingLotsIndex < parkingLotsCount; parkingLotsIndex++) {
+            parkingLots.add(new ParkingLot());
+        }
     }
 
     public ParkingTicket parkingBoyParkingCar(Car car) {
@@ -47,5 +55,9 @@ public class ParkingBoy {
             return "not enough position";
         }
         return "enough";
+    }
+
+    public List<ParkingLot> checkParkingOrder() {
+        return this.parkingLots;
     }
 }

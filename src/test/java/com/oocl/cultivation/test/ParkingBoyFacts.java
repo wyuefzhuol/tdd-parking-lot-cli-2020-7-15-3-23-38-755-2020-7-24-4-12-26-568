@@ -177,4 +177,20 @@ class ParkingBoyFacts {
         //then
         assertEquals("not enough position", parkingLotMessage);
     }
+
+    @Test
+    void return_1_full_parking_lot_1_empty_parking_lot_when_check_parking_order_parking_boy_who_has_2_parking_lots_10_cars() {
+        //given
+        ParkingBoy parkingBoy = new ParkingBoy(2);
+        for (int i = 0; i < 10; i++) {
+            parkingBoy.parkingBoyParkingCar(new Car("P"+i));
+        }
+
+        //when
+        List<ParkingLot> parkingLots = parkingBoy.checkParkingOrder();
+
+        //then
+        assertEquals(0, parkingLots.get(0).getPosition());
+        assertEquals(10, parkingLots.get(1).getPosition());
+    }
 }
