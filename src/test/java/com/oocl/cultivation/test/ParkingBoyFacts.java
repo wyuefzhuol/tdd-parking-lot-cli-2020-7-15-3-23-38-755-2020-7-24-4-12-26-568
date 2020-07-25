@@ -1,9 +1,6 @@
 package com.oocl.cultivation.test;
 
-import com.oocl.cultivation.Car;
-import com.oocl.cultivation.ParkingBoy;
-import com.oocl.cultivation.ParkingLot;
-import com.oocl.cultivation.ParkingTicket;
+import com.oocl.cultivation.*;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -208,5 +205,20 @@ class ParkingBoyFacts {
         //then
         assertEquals(0, parkingLots.get(0).getPosition());
         assertEquals(8, parkingLots.get(1).getPosition());
+    }
+
+    @Test
+    void return_parking_lots_has_1_cars_and_1_car_when_check_parking_order_parking_lots_has_1_cars_and_0_cars_1_car_1_smart_parking_boy() {
+        //given
+        SmartParkingBoy smartParkingBoy = new SmartParkingBoy(2);
+        smartParkingBoy.parkingCar(new Car("P1"));
+
+        //when
+        smartParkingBoy.parkingCar(new Car("P2"));
+        List<ParkingLot> parkingLots = smartParkingBoy.checkParkingOrder();
+
+        //then
+        assertEquals(9, parkingLots.get(0).getPosition());
+        assertEquals(9, parkingLots.get(1).getPosition());
     }
 }
