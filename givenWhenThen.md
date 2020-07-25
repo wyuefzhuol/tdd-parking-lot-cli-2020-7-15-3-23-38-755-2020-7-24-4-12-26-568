@@ -93,3 +93,25 @@
 **When** check parking order
 
 **Then** return 1 full parking lot 1 parking lot has 2 cars
+
+# Story4
+
+**Given** parking lots has 2 cars and 0 cars 1 car
+
+**When** check parking order
+
+**Then** return parking lots has 2 cars and 1 car
+
+---
+**Given** parking lots has 0 cars and 2 cars 1 car
+
+**When** check parking order
+
+**Then** return parking lots has 1 car and 2 cars
+
+---
+**Given** parking lots has 1 cars and 1 cars 1 car
+
+**When** check parking order
+
+**Then** return parking lots has 2 cars and 1 car
