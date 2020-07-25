@@ -4,12 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ParkingBoy {
-    private ParkingLot parkingLot;
     private List<ParkingLot> parkingLots;
-
-    public ParkingBoy() {
-        this.parkingLot = new ParkingLot();
-    }
 
     public ParkingBoy(int parkingLotsCount) {
         parkingLots = new ArrayList<>();
@@ -20,12 +15,12 @@ public class ParkingBoy {
 
     public ParkingTicket parkingBoyParkingCar(Car car) {
         ParkingTicket parkingTicket = new ParkingTicket(car.getCarId());
-        parkingLot.parkingCar(car);
+        parkingLots.get(0).parkingCar(car);
         return parkingTicket;
     }
 
     public Car parkingBoyFetchCar(ParkingTicket parkingTicket) {
-        Car car = parkingLot.fetchCarInParkingLot(parkingTicket);
+        Car car = parkingLots.get(0).fetchCarInParkingLot(parkingTicket);
         return car;
     }
 
@@ -41,7 +36,7 @@ public class ParkingBoy {
         if (parkingTicket == null) {
             return "please provide your parking ticket";
         }
-        List<Car> carList = parkingLot.getCarList();
+        List<Car> carList = parkingLots.get(0).getCarList();
         for (Car car : carList) {
             if (car.getCarId().equals(parkingTicket.getCarId()) && !parkingTicket.getBeenUsed()) {
                 return "the ticket is valid";
@@ -51,10 +46,12 @@ public class ParkingBoy {
     }
 
     public String checkParkingLotPosition() {
-        if (this.parkingLot.getPosition() <= 0) {
-            return "not enough position";
+        for (ParkingLot parkingLot : this.parkingLots) {
+            if (parkingLot.getPosition() > 0) {
+                return "enough";
+            }
         }
-        return "enough";
+        return "not enough position";
     }
 
     public List<ParkingLot> checkParkingOrder() {
