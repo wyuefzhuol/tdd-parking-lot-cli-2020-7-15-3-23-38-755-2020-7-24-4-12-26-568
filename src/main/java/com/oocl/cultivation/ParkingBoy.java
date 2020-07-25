@@ -35,10 +35,10 @@ public class ParkingBoy {
         return parkingTickets;
     }
 
-    public String checkTicket(ParkingTicket wrongTicket) {
+    public String checkTicket(ParkingTicket parkingTicket) {
         List<Car> carList = parkingLot.getCarList();
         for (Car car : carList) {
-            if (car.getCarId().equals(wrongTicket.getCarId())) {
+            if (car.getCarId().equals(parkingTicket.getCarId()) && !parkingTicket.getBeenUsed()) {
                 return "the ticket is valid";
             }
         }
