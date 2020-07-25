@@ -127,4 +127,20 @@ class ParkingBoyFacts {
         //then
         assertEquals("parking lot has no position", parkingTicket.getCarId());
     }
+
+    @Test
+    void should_return_unrecognized_parking_ticket_when_check_ticket_given_parking_boy_wrong_ticket() {
+        //given
+        ParkingBoy parkingBoy = new ParkingBoy();
+        ParkingTicket wrongTicket = new ParkingTicket("P3");
+        ParkingLot parkingLot = new ParkingLot();
+        Car carInParkingLot = new Car("P1");
+        parkingLot.parkingCar(carInParkingLot);
+
+        //when
+        String responseMessage = parkingBoy.checkTicket(wrongTicket, parkingLot);
+
+        //then
+        assertEquals("unrecognized parking ticket", responseMessage);
+    }
 }

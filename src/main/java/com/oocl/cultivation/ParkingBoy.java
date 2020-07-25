@@ -28,4 +28,8 @@ public class ParkingBoy {
         }
         return parkingTickets;
     }
+
+    public String checkTicket(ParkingTicket wrongTicket, ParkingLot parkingLot) {
+        return null;
+    }
 }
