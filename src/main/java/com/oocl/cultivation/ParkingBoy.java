@@ -15,7 +15,12 @@ public class ParkingBoy {
 
     public ParkingTicket parkingBoyParkingCar(Car car) {
         ParkingTicket parkingTicket = new ParkingTicket(car.getCarId());
-        parkingLots.get(0).parkingCar(car);
+        for (ParkingLot parkingLot : parkingLots) {
+            if (parkingLot.getPosition() > 0) {
+                parkingLot.parkingCar(car);
+                break;
+            }
+        }
         return parkingTicket;
     }
 
