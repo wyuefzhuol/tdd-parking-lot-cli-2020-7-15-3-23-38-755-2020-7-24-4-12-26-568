@@ -33,6 +33,9 @@ public class ParkingBoy {
     }
 
     public String checkTicket(ParkingTicket parkingTicket) {
+        if (parkingTicket == null) {
+            return "please provide your parking ticket";
+        }
         List<Car> carList = parkingLot.getCarList();
         for (Car car : carList) {
             if (car.getCarId().equals(parkingTicket.getCarId()) && !parkingTicket.getBeenUsed()) {
