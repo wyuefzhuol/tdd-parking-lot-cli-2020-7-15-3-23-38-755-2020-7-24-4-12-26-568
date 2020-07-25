@@ -25,7 +25,13 @@ public class ParkingBoy {
     }
 
     public Car parkingBoyFetchCar(ParkingTicket parkingTicket) {
-        Car car = parkingLots.get(0).fetchCarInParkingLot(parkingTicket);
+        Car car = new Car("the ticket is wrong");
+        for (ParkingLot parkingLot : parkingLots) {
+            car = parkingLot.fetchCarInParkingLot(parkingTicket);
+            if (!car.getCarId().equals("the ticket is wrong")) {
+                return car;
+            }
+        }
         return car;
     }
 
