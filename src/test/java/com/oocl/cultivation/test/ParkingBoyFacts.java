@@ -135,4 +135,19 @@ class ParkingBoyFacts {
         //then
         assertEquals("unrecognized parking ticket", responseMessage);
     }
+
+    @Test
+    void should_return_unrecognized_parking_ticket_when_check_ticket_given_parking_boy_used_ticket() {
+        //given
+        ParkingBoy parkingBoy = new ParkingBoy();
+        Car carInParkingLot = new Car("P3");
+        ParkingTicket usedTicket = parkingBoy.parkingBoyParkingCar(carInParkingLot);
+        parkingBoy.parkingBoyFetchCar(usedTicket);
+
+        //when
+        String responseMessage = parkingBoy.checkTicket(usedTicket);
+
+        //then
+        assertEquals("unrecognized parking ticket", responseMessage);
+    }
 }
