@@ -115,3 +115,11 @@
 **When** check parking order
 
 **Then** return parking lots has 2 cars and 1 car
+
+# Story5
+
+**Given** parking lots 19/20 and 9/10 1 car
+
+**When** check parking order
+
+**Then** return parking lots has 2 cars and 1 car
