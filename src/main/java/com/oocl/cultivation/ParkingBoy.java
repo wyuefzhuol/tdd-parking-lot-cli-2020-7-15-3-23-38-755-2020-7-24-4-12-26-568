@@ -46,6 +46,9 @@ public class ParkingBoy {
     }
 
     public String checkParkingLotPosition() {
+        if (this.parkingLot.getPosition() <= 0) {
+            return "not enough position";
+        }
         return "enough";
     }
 }
