@@ -46,3 +46,31 @@
 **When** parking boy parking car
 
 **Then** return parking lot has no position
+
+---
+**Given** parking boy wrong ticket
+
+**When** parking boy fetch car
+
+**Then** return unrecognized parking ticket
+
+---
+**Given** parking boy used ticket
+
+**When** parking boy fetch car
+
+**Then** return unrecognized parking ticket
+
+---
+**Given** parking boy
+
+**When** parking boy fetch car
+
+**Then** return please provide your parking ticket
+
+---
+**Given** parking boy parking lot car
+
+**When** parking boy parking car
+
+**Then** return not enough position
