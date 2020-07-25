@@ -86,3 +86,10 @@
 **When** check parking order
 
 **Then** return 1 full parking lot 1 empty parking lot
+
+---
+**Given** parking boy who has 2 parking lots 12 cars
+
+**When** check parking order
+
+**Then** return 1 full parking lot 1 parking lot has 2 cars
